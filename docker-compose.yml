@@ -15,6 +15,7 @@ services:
       - '3306'
     volumes:
       - godb:/var/lib/mysql
+      - ./docker:/docker-entrypoint-initdb.d
 
 volumes:
   godb:

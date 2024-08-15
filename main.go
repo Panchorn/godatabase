@@ -90,7 +90,7 @@ func main() {
 		return
 	}
 
-	for i, cover := range *covers {
+	for i, cover := range covers {
 		fmt.Printf("%d %#v\n", i, cover)
 	}
 	// ====================================
@@ -246,14 +246,14 @@ func DeleteCover(id int) error {
 	return nil
 }
 
-func GetCoversX() (*[]Cover, error) {
+func GetCoversX() ([]Cover, error) {
 	query := "select id, name from cover"
 	covers := []Cover{}
 	err := db.Select(&covers, query)
 	if err!= nil {
         return nil, err
     }
-	return &covers, nil
+	return covers, nil
 }
 
 func GetCoverX(id int) (*Cover, error) {

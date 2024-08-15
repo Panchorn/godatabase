@@ -13,7 +13,7 @@ var db *sqlx.DB
 
 func main() {
 	var err error
-	db, err = sqlx.Open("mysql", "godatabase:godatabase@tcp(127.0.0.1:3306)/godb")
+	db, err = sqlx.Open("mysql", "local_user:p@ssw0rd@tcp(127.0.0.1:3306)/local_db")
 	if err != nil {
 		panic(err)
 	}
@@ -35,7 +35,7 @@ func main() {
 	// ====================================
 	// GET COVER
 	// ====================================
-	// cover, err := getCover(99)
+	// cover, err := GetCover(99)
 	// if err != nil {
 	// 	fmt.Println(err)
 	// 	return
@@ -141,7 +141,7 @@ func GetCovers() ([]Cover, error) {
 	return covers, nil
 }
 
-func getCover(id int) (*Cover, error) {
+func GetCover(id int) (*Cover, error) {
 	err := db.Ping()
 	if err != nil {
 		return nil, err
